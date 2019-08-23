@@ -48,9 +48,10 @@ public class MainActivity extends AppCompatActivity implements Observer<Message>
     private static final String PREF_ACCOUNT_NAME = "accountName";
     //    private Tasks service;
     private final MutableLiveData<Message> result = new MutableLiveData<>();
+    ProgressBar progressBar;
     private NetHttpTransport HTTP_TRANSPORT;
     private GoogleAccountCredential credential;
-    ProgressBar progressBar;
+    private EditText etEmail, etMessage;
 
     private static MimeMessage createEmail(String to,
                                            String from,
@@ -90,8 +91,6 @@ public class MainActivity extends AppCompatActivity implements Observer<Message>
         return message;
     }
 
-    private EditText etEmail, etMessage;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,9 +108,6 @@ public class MainActivity extends AppCompatActivity implements Observer<Message>
 
         SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
         credential.setSelectedAccountName(settings.getString(PREF_ACCOUNT_NAME, null));
-//        service =
-//                new com.google.api.services.tasks.Tasks.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
-//                        .setApplicationName("Google-TasksAndroidSample/1.0").build();
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
