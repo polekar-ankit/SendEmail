@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            storeFile file('E:\\Projects\\Andorid Demo\\SendEmail\\keyStore.jks')
+            storeFile file('E:\\Projects\\Andorid Demo\\SendEmailManager\\keyStore.jks')
             storePassword '123456'
             keyAlias = 'key0'
             keyPassword '123456'
